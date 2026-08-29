@@ -106,7 +106,14 @@ def prepare_latest_features():
     latest["target_24h"] = np.nan
     latest["target_48h"] = np.nan
     latest["target_72h"] = np.nan
+    int64_cols = [
+        "hour",
+        "day",
+        "day_of_week",
+        "month",
+    ]
 
+    latest[int64_cols] = latest[int64_cols].astype("int64")
     latest = latest[
         FEATURE_GROUP_COLUMNS
     ]
