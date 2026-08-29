@@ -334,9 +334,19 @@ def load_models_from_hopsworks():
 
         print(f"Loading {model_name}...")
 
-        registered_model = mr.get_model(
-            name=model_name,
-            version=1
+        all_versions = mr.get_models(
+            model_name
+        )
+
+        if not all_versions:
+            raise ValueError(
+                f"No registered models found "
+                f"for {model_name}"
+            )
+
+        registered_model = max(
+            all_versions,
+            key=lambda model: model.version
         )
 
         model_dir = registered_model.download()
