@@ -2,7 +2,6 @@ import os
 import tempfile
 
 import hopsworks
-import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
@@ -73,9 +72,6 @@ FEATURE_GROUP_COLUMNS = [
 
     "aqi_change",
 
-    "target_24h",
-    "target_48h",
-    "target_72h",
 ]
 
 
@@ -103,9 +99,6 @@ def prepare_latest_features():
     latest = df.iloc[[-1]].copy()
 
     # Future targets are unknown for live rows
-    latest["target_24h"] = np.nan
-    latest["target_48h"] = np.nan
-    latest["target_72h"] = np.nan
     int64_cols = [
         "hour",
         "day",
