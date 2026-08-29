@@ -51,6 +51,17 @@ st.set_page_config(
     layout="wide"
 )
 
+def get_hopsworks_api_key():
+
+    # Streamlit Cloud
+    try:
+        return st.secrets["HOPSWORKS_API_KEY"]
+    except Exception:
+        pass
+
+    # Local development
+    return os.getenv("HOPSWORKS_API_KEY")
+
 def get_shap_explainer(model):
     return shap.Explainer(model)
 
@@ -113,8 +124,7 @@ st.markdown(
 @st.cache_resource
 def load_models_from_hopsworks():
 
-    api_key = os.getenv("HOPSWORKS_API_KEY")
-
+    api_key = get_hopsworks_api_key()
     if not api_key:
         raise ValueError(
             "HOPSWORKS_API_KEY is missing."
