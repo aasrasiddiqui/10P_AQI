@@ -139,10 +139,22 @@ def upload_latest_features(df):
     )
 
     fs = project.get_feature_store()
+    print("\nUploading dataframe columns:")
+    print(df.columns.tolist())
 
-    fg = fs.get_feature_group(
-        name="karachi_aqi_features",
-        version=2
+    print("\nUploading dataframe dtypes:")
+    print(df.dtypes)
+    fg = fs.get_or_create_feature_group(
+        name="karachi_aqi_live_features",
+        version=2,
+        description=(
+            "Latest hourly AQI, pollutant, weather "
+            "and engineered features for live inference"
+        ),
+        primary_key=["time"],
+        event_time="time",
+        online_enabled=False,
+        time_travel_format="HUDI"
     )
 
     print(
