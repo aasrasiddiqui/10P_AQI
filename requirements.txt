@@ -1,0 +1,12 @@
+pandas
+numpy
+requests
+scikit-learn
+matplotlib
+plotly
+streamlit
+python-dotenv
+joblib
+shap
+hopsworks[python]
+confluent-kafka
