@@ -165,3 +165,7 @@ optimization are required.
 - Multiple-city support
 - Additional meteorological variables
 - Prediction uncertainty intervals
+
+- ## Live Demo
+
+[Open AQI Predictor](YOUR_STREAMLIT_URL)
