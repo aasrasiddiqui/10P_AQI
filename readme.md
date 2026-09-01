@@ -13,6 +13,7 @@ Karachi Air Quality Index up to 72 hours ahead.
 - Multiple ML model comparison
 - Hopsworks Model Registry
 - SHAP explainability
+- Hazardous AQI alerts
 - Streamlit dashboard
 - Hourly feature pipeline
 - Daily model retraining
@@ -125,6 +126,7 @@ The Streamlit application displays:
 
 - Current AQI
 - AQI category
+- Health alerts
 - 24h forecast
 - 48h forecast
 - 72h forecast
