@@ -168,4 +168,4 @@ optimization are required.
 
 - ## Live Demo
 
-[Open AQI Predictor]((https://10p-internship-aqi.streamlit.app/))
+https://10p-internship-aqi.streamlit.app/
