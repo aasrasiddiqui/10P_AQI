@@ -321,33 +321,34 @@ def get_prediction_data():
 def show_aqi_alert(aqi):
 
     if aqi > 300:
-
         st.error(
-            "🚨 Hazardous AQI predicted. "
-            "Avoid outdoor exposure where possible."
+            "🚨 Hazardous AQI. Avoid outdoor exposure where possible."
         )
 
     elif aqi > 200:
-
         st.error(
-            "⚠️ Very unhealthy AQI predicted."
+            "⚠️ Very unhealthy AQI. Limit outdoor activity."
         )
 
     elif aqi > 150:
-
         st.warning(
-            "⚠️ Unhealthy AQI predicted. "
-            "Consider reducing prolonged "
-            "outdoor activity."
+            "⚠️ Unhealthy AQI. Consider reducing prolonged outdoor activity."
         )
 
     elif aqi > 100:
-
         st.warning(
-            "Sensitive groups may experience "
-            "health effects."
+            "⚠️ AQI is unhealthy for sensitive groups."
         )
 
+    elif aqi > 50:
+        st.info(
+            "ℹ️ AQI is Moderate. Air quality is generally acceptable."
+        )
+
+    else:
+        st.success(
+            "✅ AQI is Good. Air quality is satisfactory."
+        )
 
 # --------------------------------------------------
 # Main application
